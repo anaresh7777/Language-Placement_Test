@@ -3,8 +3,10 @@ html, body {
     padding: 0;
     margin: 0;
     height: 100%;
+    background-image: url("../img/home/mou5.jpg");
     position: relative;
     font-family: "Helvetica Neue", Arial, sans-serif;
+    color: #FFF;
 }
 @keyframes slidy {
 
@@ -24,9 +26,50 @@ html, body {
     background: #5E4485;
     border: 2px solid #FFF;
 }
+#imageBox {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: white;
+    outline: none;
+    border: 2px solid #7bc1f7;
+    box-shadow: 0px 0px 8px #7bc1f7;
+    -moz-box-shadow: 0px 0px 8px #7bc1f7;
+    -webkit-box-shadow: 0px 0px 8px #7bc1f7;
+    -ms-transform: rotate(-10deg); /* IE 9 */
+    -webkit-transform: rotate(-10deg); /* Safari 3-8 */
+    transform: rotate(-10deg);
+}
 
+#imageBox:hover {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: white;
+    outline: none;
+    border: 2px solid #7bc1f7;
+    box-shadow: 0px 0px 8px #7bc1f7;
+    -moz-box-shadow: 0px 0px 8px #7bc1f7;
+    -ms-transform: rotate(10deg); /* IE 9 */
+    -webkit-transform: rotate(10deg); /* Safari 3-8 */
+    transform: rotate(10deg);
+}
+#icon {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: white;
+    outline: none;
+    border: 2px solid #7bc1f7;
+    box-shadow: 0px 0px 8px #7bc1f7;
+    -moz-box-shadow: 0px 0px 8px #7bc1f7;
+    -ms-transform: rotate(10deg); /* IE 9 */
+    -webkit-transform: rotate(10deg); /* Safari 3-8 */
+    transform: rotate(10deg);
+}
 #info {
     margin: 4% auto;
+    color: #fff;
 }
  .logo {
      position: absolute;
@@ -61,11 +104,11 @@ label {
     font-weight: 100;
 }
 .loginBackground{
-  background-image: url("../img/home/kids1.jpg");  
+  background-image: url("../img/home/fh7.jpg");
 }
 
 .signUpCard{
-    top: 77px;
+    top: 80px;
     width: 770px;
 }
 .img-responsive{
