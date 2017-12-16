@@ -1,0 +1,214 @@
+
+html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    position: relative;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+}
+@keyframes slidy {
+
+    25% { left: -100%; }
+    45% { left: -100%; }
+    50% { left: -200%; }
+    70% { left: -200%; }
+    75% { left: -300%; }
+    95% { left: -300%; }
+    100% { left: -400%; }
+}
+
+#signbutton {
+    font-size: 18px;
+    color: #FFF;
+    padding: 12px 22px;
+    background: #5E4485;
+    border: 2px solid #FFF;
+}
+
+#info {
+    margin: 4% auto;
+}
+ .logo {
+     position: absolute;
+     width: 85px;
+     height: 50px;
+     top: 0;
+     left: 10px;
+     border: 0;
+ }
+ #exit {
+     position: relative;
+     margin-top: 100px;
+     margin-left: 10px;
+ }
+.timer {
+    position: relative;
+    margin-top: 50px;
+}
+.myBtn{
+    position: relative;
+    margin-right: 100px;
+}
+.md-toolbar-tools > .md-button:last-child {
+    margin-right: 0px;
+    margin-top: 58px;
+}
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 100;
+}
+.loginBackground{
+  background-image: url("../img/home/kids1.jpg");  
+}
+
+.signUpCard{
+    top: 77px;
+    width: 770px;
+}
+.img-responsive{
+    max-width: 93%;
+    height: auto;
+    margin-top: 37px;
+    
+    margin-left: 77px;
+}
+
+.question-btn-float-left{
+    float: right;
+}
+.quiz-last{
+ margin-top: 300px;   
+}
+
+.listview {
+    margin-top: 100px;
+}
+
+
+
+
+footer {
+    text-align: center;
+    height: 70px;
+    width: 100%;
+    right: 0;
+    left: 0;
+    background-color: #000000;
+    bottom: 0;
+}
+
+footer span.copyright {
+    text-transform: uppercase;
+    text-transform: none;
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 40px;
+    text-align:center;
+}
+
+footer ul.quicklinks {
+    margin-bottom: 0;
+    text-transform: uppercase;
+    text-transform: none;
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 40px;
+    text-align:center;
+}
+
+ul.list-inline {
+    list-style: none;
+    display: inline;
+    margin-left:0 !important;
+    padding: 0;
+}
+ul.list-inline li {
+    display: inline;
+    margin: 0 2px;
+}
+
+.list-inline a.icoFacebook:hover {
+    background-color:#3B5998;
+}
+.list-inline a.icoTwitter:hover {
+    background-color:#33ccff;
+}
+.list-inline a.icoGithub:hover {
+    background-color: #6cc644;;
+}
+.list-inline a.icoXing:hover {
+    background-color: #0a5d5e;;
+}
+.list-inline a.icoLinkedin:hover {
+    background-color:#007bb7;
+}
+
+ul.social-buttons li a {
+    display:inline-block;
+    position:relative;
+    margin:0 auto 0 auto;
+    -moz-border-radius:50%;
+    -webkit-border-radius:50%;
+    border-radius:50%;
+    text-align:center;
+    width: 50px;
+    height: 50px;
+    font-size:20px;
+}
+.social-buttons li i {
+    margin:0;
+    line-height:50px;
+    text-align: center;
+}
+.social-buttons li a:hover i, .triggeredHover {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    transition: all 0.2s;
+}
+.social-buttons i {
+    color: #fff;
+    -webkit-transition: all 0.8s;
+    -moz-transition: all 0.8s;
+    -o-transition: all 0.8s;
+    -ms-transition: all 0.8s;
+    transition: all 0.8s;
+}
+
+
+/*ul.social-buttons li a:hover,
+ul.social-buttons li a:focus,
+ul.social-buttons li a:active {
+    background-color: #1ee2e7;
+}*/
+
+.carousel-caption {
+    top: 50%;
+    transform: translateY(-50%);
+    text-transform: uppercase;
+}
+#icon {
+    max-width: 200px;
+    margin: 1% auto;
+}
+
+
+@media (max-width: 600px) {
+.carousel-caption {
+    display: none;
+}
+    #icon {
+        max-width: 150px;
+    }
+}
+
+
+
+
