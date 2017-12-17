@@ -26,33 +26,24 @@ html, body {
     background: #5E4485;
     border: 2px solid #FFF;
 }
-#imageBox {
-    position: relative;
-    overflow: hidden;
+.imageBox {
+    position: absolute;
+    top: 15%;
+    left: 65%;
     border-radius: 5px;
-    background-color: white;
-    outline: none;
+    overflow: hidden;
+    width: 400px;
+    height: 500px;
     border: 2px solid #7bc1f7;
     box-shadow: 0px 0px 8px #7bc1f7;
-    -moz-box-shadow: 0px 0px 8px #7bc1f7;
-    -webkit-box-shadow: 0px 0px 8px #7bc1f7;
-    -ms-transform: rotate(-10deg); /* IE 9 */
-    -webkit-transform: rotate(-10deg); /* Safari 3-8 */
-    transform: rotate(-10deg);
 }
-
-#imageBox:hover {
-    position: relative;
-    overflow: hidden;
-    border-radius: 5px;
-    background-color: white;
-    outline: none;
-    border: 2px solid #7bc1f7;
-    box-shadow: 0px 0px 8px #7bc1f7;
-    -moz-box-shadow: 0px 0px 8px #7bc1f7;
-    -ms-transform: rotate(10deg); /* IE 9 */
-    -webkit-transform: rotate(10deg); /* Safari 3-8 */
-    transform: rotate(10deg);
+.imageBox img {
+    transition: all 2s ease;
+    width: 100%;
+    height: 100%;
+}
+.imageBox img:hover  {
+    transform: scale(1.5)rotate(15deg);
 }
 #icon {
     position: relative;
@@ -73,11 +64,12 @@ html, body {
 }
  .logo {
      position: absolute;
+     border-radius: 7px;
      width: 85px;
      height: 50px;
      top: 0;
      left: 10px;
-     border: 0;
+     border: black;
  }
  #exit {
      position: relative;
