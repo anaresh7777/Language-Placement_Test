@@ -82,7 +82,8 @@ app.controller('dashCtrl',function($scope,$document,$http,$state,$rootScope,hero
     var id = sessionStorage.id;
     that.isAdmin = false;
     //var userName = sessionStorage.userName;
-    $document.ready(function(){
+    that.users = []
+    that.userData = []
 
         if(id !== '56a736e5ecc25fc92b468045'){
 
@@ -92,24 +93,58 @@ app.controller('dashCtrl',function($scope,$document,$http,$state,$rootScope,hero
             that.isAdmin = true;
         }
         //$scope.users = 0;
-        that.users = true;
+
         that.userResults = false;
         $http.post('/findAllUsers').then(function(data){
             console.log("Getting response form Users" ,data);
-            that.users = data.data.data;
+            for(var i = 0; i < data.data.data.length; i++) {
+
+                that.userData.push(data.data.data[i])
+
+            }
+
+            (function(){
+                for(var i = 0; that.userData.length; i++) {
+                    if(i === 6) {
+                        break;
+                    } else {
+                        that.users.push(that.userData[i]);
+                    }
+                }
+            })();
             //console.log(that.users);
             that.userID = data.data.data;
 
-            that.back2users = function(){
-                that.errShow = false;
-                that.users = true;
-                that.userResults = false;
-                $http.post('/findAllUsers').then(function(data){
-                    console.log("Getting response form Users" ,data);
-                    that.users = data.data.data;
-                });
+            // that.back2users = function(){
+            //     that.errShow = false;
+            //     that.users = true;
+            //     that.userResults = false;
+            //     $http.post('/findAllUsers').then(function(data){
+            //         console.log("Getting response form Users" ,data);
+            //         that.users = data.data.data;
+            //     });
+            //
+            // };
+            function pagination(value, data, page) {
+                var sorted = [];
+                for(var i = value * page - value ; i < value * page; i++ ) {
+                    sorted.push(data[i])
+                }
+                return sorted;
+            }
+            var pageNo = 1;
+            document.addEventListener('scroll', function(event){
+                pageNo++
+                if(window.scrollY === 81)  {
+                    var page = pagination(6,that.userData, pageNo );
+                    for(var i = 0; i < page.length; i++) {
 
-            };
+                        that.users.push(page[i])
+                    }
+                    console.log(that.users);
+
+                }
+            })
 
             $scope.showUserResult = function(userID){
                 that.users = false;
@@ -166,7 +201,6 @@ app.controller('dashCtrl',function($scope,$document,$http,$state,$rootScope,hero
 			}
 			return arr;
 		}
-    })
 });
 
 angular.module('app.getQuestion',[])
@@ -1180,6 +1214,9 @@ exports.userProfile = function (req, res) {
         }
     });
 };
+// Finding all users
+
+
 exports.findAllUsers = function (req, res) {
     User.find(function (err, data) {
         if (err) {
@@ -1192,6 +1229,45 @@ exports.findAllUsers = function (req, res) {
         }
     });
 };
+
+
+/*
+var limitOfUserByRequest = 6;
+
+exports.findAllUsers = function(req, res) {
+    var data = undefined;
+    const query = req.query || {};
+    User.find(query)
+        .limit(limitOfUserByRequest)
+        .sort({ _id: -1 })
+        .exec()
+        .then( function (_data) {
+        data = _data;
+    return User.count({ _id:{ $gt:data[data.length - 1]._id } });
+})
+.then(function (count) {
+
+        if (count) return res.json({
+            success: true,
+            data: data,
+            next:{
+                _id:{
+                    $gt:data[data.length - 1]._id
+                }
+            }
+        });
+
+    res.json({
+        success: true,
+        data: data
+    });
+})
+.catch(function(err) {
+    res.json({success: false, data: err});
+});
+};
+*/
+
 
 // deleting users list
 exports.deleteResult = function(req, res){
@@ -1252,27 +1328,31 @@ exports.emailSend = function (req, res) {
     var smtpTransport = nodemailer.createTransport("SMTP", {
         service: "Gmail",
         auth: {
-            user: "anaresh7777@gmail.com",
-            pass: "naresh542"
+            // enter your gmail account
+            user: 'anaresh7777@gmail.com',
+            // enter your gmail password
+            pass: 'anaresh@542'
         }
     });
     // setup e-mail data with unicode symbols
     var mailOptions = {
         // from: req.body.from, // sender address
-        to: "anaresh7777@gmail.com",
-        subject: req.body.from,
-        text: req.body.senderName,
-        html: req.body.htmlCode // html body
-    };
+        to: 'anaresh7777@gmail.com',
+        subject: 'Contact Form Message',
+        from: "Contact Form Request" + "<" + req.query.from + '>',
+        html:  "From: " + req.query.name + "<br>" +
+        "User's email: " + req.query.user + "<br>" +     "Message: " + req.query.text
+    }
+    console.log(mailOptions);
     // send mail with defined transport object
     smtpTransport.sendMail(mailOptions, function (error, response) {
         if (error) {
             console.log(error);
-            res.json({ success: false, "msg": "Some thing went wrong", error: error });
+            res.end("error");
         }
         else {
             console.log("Message sent: " + response.message);
-            res.json({ success: true, "msg": "Message Sent", response: response });
+            res.end("sent");
         }
         // if you don't want to use this transport object anymore, uncomment following line
         //smtpTransport.close(); // shut down the connection pool, no more messages

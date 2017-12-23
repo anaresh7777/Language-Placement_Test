@@ -3,10 +3,10 @@ html, body {
     padding: 0;
     margin: 0;
     height: 100%;
-    background-image: url("../img/home/mou5.jpg");
+    /*background-image: url("../img/home/mou5.jpg");*/
     position: relative;
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    color: #FFF;
+    font-family: "Arial Black", Gadget, sans-serif;
+    color: #000;
 }
 @keyframes slidy {
 
@@ -19,6 +19,73 @@ html, body {
     100% { left: -400%; }
 }
 
+#about {
+    margin: 0;
+    background-position: left bottom;
+    background-repeat: no-repeat, repeat;
+    background-attachment: fixed;
+   position: relative;
+    background-image: url("../img/home/bk8.png"), url("../img/home/bk4.jpg");
+}
+.contact {
+    margin: 0;
+    background-position: right bottom;
+    background-repeat: no-repeat, repeat;
+    background-attachment: fixed;
+    position: relative;
+    background-image: url("../img/home/bk11.png"), url("../img/home/bk1.jpg");
+}
+
+#login, #logout {
+    margin: 0;
+    position: relative;
+    background-image: url("../img/home/bk6.jpg");
+}
+
+#getQuestion {
+    margin: 0;
+    background-position: right bottom;
+    background-repeat: no-repeat, repeat;
+    background-attachment: fixed;
+    position: relative;
+    background-image: url("../img/home/bk8.png"), url("../img/home/bk3.jpg");
+}
+
+#dash, #questionsList, #addQuestion {
+    margin: 0;
+    position: relative;
+    background-image: url("../img/home/bk2.png");
+}
+
+.pbox {
+    position: relative;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    left: 5px;
+    top: -50px;
+    width: 730px;
+    background-color: #b0e0e6;
+    padding: 10px;
+}
+
+#pbox2 {
+    font-size: 75px;
+    font-family: Impact, Charcoal, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    top: 30px;
+    color: #cccccc;
+    padding: 0;
+}
+
+#pbox3 {
+    position: relative;
+    font-family: Impact, Charcoal, sans-serif;
+    top: -70px;
+    color: rgba(255,255,255,.2);
+    font-size: 40px;
+    font-weight: bold;"
+}
+
 #signbutton {
     font-size: 18px;
     color: #FFF;
@@ -26,6 +93,95 @@ html, body {
     background: #5E4485;
     border: 2px solid #FFF;
 }
+
+#signbutton span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+#signbutton span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+#signbutton:hover span {
+    padding-right: 25px;
+}
+
+#signbutton:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+
+
+.scroll-down {
+    opacity: 1;
+    -webkit-transition: all .5s ease-in 3s;
+    transition: all .5s ease-in 3s;
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    margin-left: -16px;
+    display: block;
+    width: 32px;
+    height: 32px;
+    border: 2px solid #FFF;
+    background-size: 14px auto;
+    border-radius: 50%;
+    z-index: 2;
+    -webkit-animation: bounce 2s infinite 2s;
+    animation: bounce 2s infinite 2s;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+}
+
+.scroll-down:before {
+    position: absolute;
+    top: calc(50% - 8px);
+    left: calc(50% - 6px);
+    transform: rotate(-45deg);
+    display: block;
+    width: 12px;
+    height: 12px;
+    content: "";
+    border: 2px solid white;
+    border-width: 0px 0 2px 2px;
+}
+
+@keyframes bounce {
+    0%,
+    100%,
+    20%,
+    50%,
+    80% {
+        -webkit-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+    }
+    40% {
+        -webkit-transform: translateY(-10px);
+        -ms-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+    60% {
+        -webkit-transform: translateY(-5px);
+        -ms-transform: translateY(-5px);
+        transform: translateY(-5px);
+    }
+}
+
+
+
 .imageBox {
     position: absolute;
     top: 15%;
@@ -34,8 +190,8 @@ html, body {
     overflow: hidden;
     width: 400px;
     height: 500px;
-    border: 2px solid #7bc1f7;
-    box-shadow: 0px 0px 8px #7bc1f7;
+    border: 2px solid rgba(255,255,255,.2);
+    box-shadow: 0px 0px 8px rgba(255,255,255,.2);
 }
 .imageBox img {
     transition: all 2s ease;
@@ -60,7 +216,7 @@ html, body {
 }
 #info {
     margin: 4% auto;
-    color: #fff;
+    color: #000;
 }
  .logo {
      position: absolute;
@@ -78,7 +234,7 @@ html, body {
  }
 .timer {
     position: relative;
-    margin-top: 50px;
+    margin-top: 70px;
 }
 .myBtn{
     position: relative;
@@ -123,22 +279,20 @@ label {
 }
 
 
-
-
 footer {
     text-align: center;
     height: 70px;
     width: 100%;
     right: 0;
     left: 0;
-    background-color: #000000;
+    background-color: #5E4485;
     bottom: 0;
 }
 
 footer span.copyright {
     text-transform: uppercase;
     text-transform: none;
-    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Arial Black", Gadget, sans-serif;
     line-height: 40px;
     text-align:center;
 }

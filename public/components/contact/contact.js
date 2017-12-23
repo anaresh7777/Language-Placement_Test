@@ -1,10 +1,14 @@
 angular.module('app.contact',[])
 .controller('contactCtrl',function($http,$scope,$mdToast,heroku){
     //var send = 'This is my Name';
-    $scope.sendto = {}
+    $scope.sendto = {
+        "senderName":'',
+        "from":'',
+        "htmlCode":""
+    }
     
    $scope.send = function(){
-       
+       console.log($scope.sendto);
     $http.post( '/emailSend',$scope.sendto).then(function(data){
         console.log("got data from Email " ,data);
         console.log(data.data);
@@ -26,7 +30,11 @@ angular.module('app.contact',[])
         
        );
     })
-    $scope.sendto = "";
+    $scope.sendto = {
+        "senderName":'',
+        "from":'',
+        "htmlCode":""
+    }
    }
    
    });

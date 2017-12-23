@@ -1,7 +1,7 @@
 
 
 
- <div layout="column" layout-align="center center" style="position: relative; margin-top: 42px;">
+ <div class="contact" layout="column" layout-align="center center" style="position: relative; margin-top: 42px;">
 
 
        <md-card class="signUpCard">
@@ -19,25 +19,21 @@
 
       <md-input-container>
         <label>Your Name</label>
-        <input type="text" ng-model="sendto.senderName" required/>
+        <input type="text" id="name" ng-model="sendto.senderName" required/>
        
       </md-input-container>
             <md-input-container>
         <label>Email Address</label>
-        <input type="email" ng-model="sendto.from" required/>
-      </md-input-container>
-      <md-input-container>
-        <label>Subject</label>
-        <input type="text" ng-model="sendto.emailSubject" />
+        <input type="email" id="user_email" ng-model="sendto.from" required/>
       </md-input-container>
             <md-input-container>
         <label>Your Message</label>
-               <textarea ng-model="sendto.htmlCode" ng-minlength="6"></textarea>
+               <textarea id="textarea1" ng-model="sendto.htmlCode" ng-minlength="6"></textarea>
       </md-input-container>
 
   </md-content>
   <div layout="row" layout-align="center center">
-        <md-button type="submit" class="md-raised md-primary" ng-disabled="!sendto.senderName || !sendto.from || !sendto.emailSubject || !sendto.htmlCode"> Send
+        <md-button type="submit" id="send_email" class="md-raised md-primary" ng-disabled="!sendto.senderName || !sendto.from  || !sendto.htmlCode"> Send
         </md-button>
   </div>
 
@@ -47,5 +43,10 @@
         </md-card-content>
         
       </md-card>
+     <br>
+     <br>
+     <br>
+     <br>
 
  </div>
+

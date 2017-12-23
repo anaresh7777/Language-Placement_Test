@@ -28,7 +28,7 @@ angular.module("quizApp")
                     url: "/dashboard",
                     templateUrl: "../components/dashboard/dash.html",
                     controller: "dashCtrl",
-                    controllerAs: "dash",
+                    controllerAs: "vm",
                     loginCompulsory: true
                 }
             )
