@@ -2,19 +2,6 @@
 var mongoose = require('mongoose');
 var validator = require('mongoose-unique-validator');
 var nodemailer = require('nodemailer');
-//var MongoClient = require('mongodb').MongoClient;
-//var assert = require('assert');
-// mongoose.Promise = require('bluebird');
-// mongoose.Promise = global.Promise;
-
-/*mongoose.connect('mongodb://ghayyas94:12345@ds047865.mongolab.com:47865/quizapp', { useMongoClient: true }, function(err) {
-    if (err) {
-        console.log('Not connected to the database: ' + err);
-    } else {
-        console.log('Successfully connected to MongoDB');
-    }
-    var db = mongoose.connection;
-});*/
 
 
 //mongoose.Promise = require('q').Promise;
@@ -30,14 +17,8 @@ db.on('connect', function(err) {
         console.log('Not connected to the database: ' + err);
     } else {
         console.log('Successfully connected to MongoDB');
-    }; });
-
-/*var url = 'mongodb://ghayyas94:12345@ds047865.mongolab.com:47865/quizapp';
-MongoClient.connect(url, function(err, db) {
-    assert.equal(null, err);
-    console.log("Connected correctly to server.");
-    db.close();
-});*/
+    };
+});
 
 var userSchema = new mongoose.Schema({
     userName: { type: String, required: true, index: true, unique: true },
@@ -115,9 +96,9 @@ exports.loginUser = function (req, res) {
                 console.log("user ID is :", data._id);
                 res.json({ success: true, "data": data });
                 console.log("data posted " + data);
-            } //else  for data forward
-        } //Main else
-    }); //FindOne funtionx
+            }
+        }
+    });
 };
 exports.addQuestion = function (req, res) {
     var data = req.body;
@@ -236,6 +217,7 @@ exports.showResult = function (req, res) {
         }
     });
 };
+
 exports.userProfile = function (req, res) {
     //let UserID = req.body.UserID;
     var UserID = req.params.uid;
@@ -251,8 +233,9 @@ exports.userProfile = function (req, res) {
         }
     });
 };
-// Finding all users
 
+
+// Finding all users
 
 exports.findAllUsers = function (req, res) {
     User.find(function (err, data) {
@@ -266,44 +249,6 @@ exports.findAllUsers = function (req, res) {
         }
     });
 };
-
-
-/*
-var limitOfUserByRequest = 6;
-
-exports.findAllUsers = function(req, res) {
-    var data = undefined;
-    const query = req.query || {};
-    User.find(query)
-        .limit(limitOfUserByRequest)
-        .sort({ _id: -1 })
-        .exec()
-        .then( function (_data) {
-        data = _data;
-    return User.count({ _id:{ $gt:data[data.length - 1]._id } });
-})
-.then(function (count) {
-
-        if (count) return res.json({
-            success: true,
-            data: data,
-            next:{
-                _id:{
-                    $gt:data[data.length - 1]._id
-                }
-            }
-        });
-
-    res.json({
-        success: true,
-        data: data
-    });
-})
-.catch(function(err) {
-    res.json({success: false, data: err});
-});
-};
-*/
 
 
 // deleting users list
@@ -361,8 +306,13 @@ exports.deleteQuestion = function(req, res){
     });
 };
 
+
+
 exports.emailSend = function (req, res) {
-    var smtpTransport = nodemailer.createTransport("SMTP", {
+
+   var data = req.body;
+
+    var smtTransport = nodemailer.createTransport("SMTP", ({
         service: "Gmail",
         auth: {
             // enter your gmail account
@@ -370,19 +320,20 @@ exports.emailSend = function (req, res) {
             // enter your gmail password
             pass: 'anaresh@542'
         }
-    });
-    // setup e-mail data with unicode symbols
+    }));
+
     var mailOptions = {
-        // from: req.body.from, // sender address
+
         to: 'anaresh7777@gmail.com',
-        subject: 'Contact Form Message',
-        from: "Contact Form Request" + "<" + req.query.from + '>',
-        html:  "From: " + req.query.name + "<br>" +
-        "User's email: " + req.query.user + "<br>" +     "Message: " + req.query.text
-    }
+        subject: "Message from"  + data.senderName,
+        from: data.from,
+        text: data.htmlCode,
+        html:  "From: " + data.senderName + "<br>" +
+        "User's email: " + data.from + "<br>" +     "Message: " + data.htmlCode
+    };
     console.log(mailOptions);
-    // send mail with defined transport object
-    smtpTransport.sendMail(mailOptions, function (error, response) {
+
+    smtTransport.sendMail(mailOptions, function (error, response) {
         if (error) {
             console.log(error);
             res.end("error");
@@ -391,10 +342,9 @@ exports.emailSend = function (req, res) {
             console.log("Message sent: " + response.message);
             res.end("sent");
         }
-        // if you don't want to use this transport object anymore, uncomment following line
-        //smtpTransport.close(); // shut down the connection pool, no more messages
     });
 };
+
 exports.findAllResults = function (req, res) {
     var userID = req.body.userID;
     console.log(req.body);
@@ -409,19 +359,4 @@ exports.findAllResults = function (req, res) {
         res.json({ success: true, data: data });
     });
 };
-/*
- exports.deleteQuestion = (req,res)=>{
- let QuestionID = req.params.uid;
- console.log(QuestionID);
 
- Question.findByIdAndRemove(QuestionID,(err,data)=>{
- if(err){
- console.log("got error from QuestionID" ,err);
- }
- else{
- console.log("got Success from QuestionID" , data);
- }
- })
-
- }
- */
