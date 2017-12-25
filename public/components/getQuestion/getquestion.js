@@ -167,5 +167,15 @@ angular.module('app.getQuestion',[])
           console.log('Got Error due to ' ,err);
       })
     
+    };
+    $scope.click = function () {
+        $scope.result = true;
+        if ($scope.correct <= 2) {
+            $state.go('courseA1');
+        } else if ($scope.correct <= 4) {
+            $state.go('courseA2');
+        } else {
+            $state.go('courseB1');
+        }
     }
 });

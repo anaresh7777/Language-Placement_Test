@@ -66,6 +66,27 @@ angular.module("quizApp")
                     controller: "contactCtrl"
                 }
             )
+       .state('courseA1', {
+               url: "/courseA1",
+               templateUrl: "../components/courseA1/courseA1.html",
+               controller: "courseA1Ctrl",
+                loginCompulosry : true
+           }
+       )
+       .state('courseA2', {
+               url: "/courseA2",
+               templateUrl: "../components/courseA2/courseA2.html",
+               controller: "courseA2Ctrl",
+                loginCompulosry : true
+           }
+       )
+       .state('courseB1', {
+               url: "/courseB1",
+               templateUrl: "../components/courseB1/courseB1.html",
+               controller: "courseB1Ctrl",
+                loginCompulosry : true
+           }
+       )
             .state('userprofile', {
                     url: "/userprofile",
                     templateUrl: "../components/userprofile/userprofile.html",
