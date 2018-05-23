@@ -11,16 +11,18 @@
   "license": "ISC",
   "dependencies": {
     "assert": "^1.4.1",
-    "body-parser": "^1.18.1",
-    "express": "^4.13.3",
-    "grunt": "^1.0.1",
-    "method-override": "^2.3.9",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "grunt": "^1.0.2",
+    "hoek": "^4.2.1",
+    "lodash": "^4.17.10",
+    "method-override": "^2.3.10",
     "mongoclient": "^1.0.3",
-    "mongoose": "^4.11.12",
+    "mongoose": "^4.13.13",
     "mongoose-unique-validator": "^0.6.2",
     "multer": "^1.3.0",
     "ng-infinite-scroll": "^1.3.0",
-    "nodemailer": "^0.7.0",
+    "nodemailer": "^4.6.5",
     "nodemailer-smtp-transport": "^2.7.4",
     "sinon-mongoose": "^2.0.2",
     "validator": "^9.1.2"
@@ -29,7 +31,7 @@
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-cssmin": "^2.2.1",
     "grunt-contrib-uglify": "^3.2.1",
-    "grunt-contrib-watch": "^1.0.0",
+    "grunt-contrib-watch": "^1.1.0",
     "mocha": "^4.0.1"
   }
 }
