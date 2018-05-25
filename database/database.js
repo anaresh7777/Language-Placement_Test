@@ -5,7 +5,7 @@ var nodemailer = require('nodemailer');
 
 
 //mongoose.Promise = require('q').Promise;
-mongoose.connect('mongodb://ghayyas94:12345@ds047865.mongolab.com:47865/quizapp', { useMongoClient: true });  //mongodb://naresh:naresh@ds249025.mlab.com:49025/languageapp
+mongoose.connect('mongodb://ghayyas94:12345@ds047865.mongolab.com:47865/quizapp');  //mongodb://naresh:naresh@ds249025.mlab.com:49025/languageapp
 var db = mongoose.connection;
 mongoose.Promise = global.Promise;
 

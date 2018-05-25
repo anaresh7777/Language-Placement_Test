@@ -10,28 +10,32 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@uirouter/angularjs": "^1.0.18",
+    "angular": "^1.6.10",
+    "angular-animate": "^1.7.0",
+    "angular-material": "^1.1.9",
     "assert": "^1.4.1",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "grunt": "^1.0.2",
-    "hoek": "^4.2.1",
+    "hoek": "^5.0.3",
     "lodash": "^4.17.10",
     "method-override": "^2.3.10",
     "mongoclient": "^1.0.3",
-    "mongoose": "^4.13.13",
-    "mongoose-unique-validator": "^0.6.2",
+    "mongoose": "^5.1.2",
+    "mongoose-unique-validator": "^2.0.1",
     "multer": "^1.3.0",
     "ng-infinite-scroll": "^1.3.0",
     "nodemailer": "^4.6.5",
     "nodemailer-smtp-transport": "^2.7.4",
     "sinon-mongoose": "^2.1.1",
-    "validator": "^9.4.1"
+    "validator": "^10.2.0"
   },
   "devDependencies": {
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-cssmin": "^2.2.1",
     "grunt-contrib-uglify": "^3.3.0",
     "grunt-contrib-watch": "^1.1.0",
-    "mocha": "^4.1.0"
+    "mocha": "^5.2.0"
   }
 }
